@@ -25,6 +25,7 @@
 html, body {
     height: 100%;
     width: 100%;
+    overflow-x: hidden;
 }
 
 *::-webkit-scrollbar {
@@ -342,7 +343,6 @@ nav h3 {
     height: 150px;
     width: 100%;
     position: relative;
-
     border-bottom: 1px solid #38383864;
     overflow: hidden;
     display: flex;
@@ -878,15 +878,15 @@ nav h3 {
     }
 
     .swiper-slide {
-        width: 70%;
+        width: 70vh;
     }
 
     #page5 {
-        min-height: 76vh;
+        min-height: 50vh;
     }
     #footerupper{
         flex-direction: column;
-        top: 35%;
+        top: 0%;
         align-items: flex-start;
     }
     #footer h2 {
@@ -910,7 +910,7 @@ nav h3 {
         color: #504A45;
     }
     #footerlower{
-        top: 38%;
+        top: 0%;
     }
     #footerlower img{
         padding-bottom: 3vh;

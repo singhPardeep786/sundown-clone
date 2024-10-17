@@ -25,33 +25,17 @@ function page4Animation() {
 
 function swiperAnimation() {
     var swiper = new Swiper(".mySwiper", {
-        slidesPerView: "left",
+        slidesPerView: "auto",
         centeredSlides: true,
-        spaceBetween: 50,
+        spaceBetween: 10,
+        speed: 1200,
+        loop: true
       });
     // var swiper = new Swiper(".mySwiper", {
     //     centeredSlides: true,
     //     slidesPerView: "left",
     //     spaceBetween: 10,     
     //     speed: 1200,
-    //     breakpoints: {
-    //     300: {
-    //       slidesPerView: 1,
-    //       spaceBetween: 10,
-    //     },
-    //     640: {
-    //       slidesPerView: 2,
-    //       spaceBetween: 0,
-    //     },
-    //     768: {
-    //       slidesPerView: 4,
-    //       spaceBetween: 0,
-    //     },
-    //     1024: {
-    //       slidesPerView: 3,
-    //       spaceBetween: 0,
-    //     },
-    //   },
     // });
 
     // var swiper = new Swiper(".mySwiper", {
