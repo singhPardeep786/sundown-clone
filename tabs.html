@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Responsive Tabs</title>
+</head>
+<style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.tab-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #000000;
+}
+
+.tabs-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-left: 1px solid #999999;
+}
+
+.tab-button {
+  margin: 10px 0 0 0;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: #504A45;
+  font-size: 2rem;
+}
+
+.tab-button.active {
+  color: #EFEAE3;
+  margin-left: -25px;
+}
+
+.tab-content {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.content p.active {
+  color: #EFEAE3;
+}
+
+.content {
+  display: none;
+}
+
+.content.active {
+  display: block;
+}
+
+.image-section {
+  margin-top: 20px;
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+}
+
+@media (min-width: 768px) {
+  .tab-container {
+    flex-direction: row;
+  }
+
+  .tabs-section, .image-section {
+    flex: 1;
+  }
+}
+
+</style>
+<body>
+  <div class="tab-container">
+    <div class="tabs-section">
+      <div class="tabs">
+        <button class="tab-button active" data-tab="tab1">Design</button>
+        <button class="tab-button" data-tab="tab2">Project</button>
+        <button class="tab-button" data-tab="tab3">Execution</button>
+      </div>
+      <div class="tab-content">
+        <div class="content active" id="tab1-content">
+          <p class="active">Our team works with our clients to refine an idea and concept into an executable design. We create a final design that encompasses the brand narrative to bring stories to life and provide end-to-end design solutions from concept, design, and architectural drawings to 3D renderings.</p>
+        </div>
+        <div class="content" id="tab2-content">
+          <p>Once we have a design, our production team takes the lead in bringing it to life. We manage all stages of the project, from build specifications and technical drawings to site surveys, vendor management, and 2D & 3D production. We have an extensive network of partners to meet each unique design and project need.</p>
+        </div>
+        <div class="content" id="tab3-content">
+          <p>We’re with you every step of the way, from the project initiation to launch day. Our production and design teams are onsite to direct and guide the process down to the last point of completion, ensuring success across the built space and experience.</p>
+        </div>
+      </div>
+    </div>
+    <div class="image-section" style="background-image: url('https://images.unsplash.com/photo-1648461400287-881314915e2c?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+    </div>
+
+  </div>
+
+  <script>
+    document.querySelectorAll('.tab-button').forEach(button => {
+      button.addEventListener('click', () => {
+        const tabContainer = button.parentElement.parentElement;
+        const contentId = button.dataset.tab + '-content';
+
+        // Remove active class from other buttons
+        tabContainer.querySelectorAll('.tab-button').forEach(btn => {
+          btn.classList.remove('active');
+        });
+
+        // Add active class to the clicked button
+        button.classList.add('active');
+
+        // Hide other content
+        tabContainer.querySelectorAll('.content').forEach(content => {
+          content.classList.remove('active');
+        });
+
+        // Show corresponding content
+        document.getElementById(contentId).classList.add('active');
+
+        // Make p tag also active when tabs are active
+        document.getElementById(contentId).querySelectorAll('p').forEach(p => {
+          p.classList.add('active');
+        });
+
+        // Change the background image
+        const imageSection = document.querySelector('.image-section');
+        switch (contentId) {
+          case 'tab1-content':
+            imageSection.style.backgroundImage = 'url(https://sundown-ivory.vercel.app/page4-3.webp)';
+            break;
+          case 'tab2-content':
+            imageSection.style.backgroundImage = 'url(https://sundown-ivory.vercel.app/page4-2.webp)';
+            break;
+          case 'tab3-content':
+            imageSection.style.backgroundImage = 'url(https://sundown-ivory.vercel.app/page4-3.webp)';
+            break;
+        }
+      });
+    });
+  </script>
+
+  </script>
+</body>
+</html>
