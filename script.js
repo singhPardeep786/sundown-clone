@@ -8,7 +8,7 @@ function page4Animation() {
     var elemC = document.querySelector("#elem-container")
     var fixed = document.querySelector("#fixed-image")
     elemC.addEventListener("mouseenter", function () {
-        fixed.style.display = "block"
+        fixed.style.display = "initial"
     })
     
     var elems = document.querySelectorAll(".elem")
